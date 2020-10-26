@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path, include                 # add this
 from rest_framework import routers                    # add this
 from todo import views                            # add this
+from django.views.generic import RedirectView
 
 router = routers.DefaultRouter()                      # add this
 router.register(r'todos', views.TodoView, 'todo')     # add this
 
 urlpatterns = [
-    path('admin/', admin.site.urls), path('api/', include(router.urls))               
+    path('admin/', admin.site.urls), 
+    path('api/', include(router.urls)),
+    path('', RedirectView.as_view(url='/api/'))              
 ]
