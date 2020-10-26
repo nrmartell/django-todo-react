@@ -25,5 +25,5 @@ router.register(r'todos', views.TodoView, 'todo')     # add this
 urlpatterns = [
     path('admin/', admin.site.urls), 
     path('api/', include(router.urls)),
-    path('', RedirectView.as_view(url='/api/'))              
+    path('', RedirectView.as_view(url='/'))              
 ]
